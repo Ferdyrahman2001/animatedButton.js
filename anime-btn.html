@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale=1.0">
+        <title>
+            Anime-Button.js
+        </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    </head>
+    <body class="flex justify-center items-center 
+    h-screen bg-gray-100">
+        <button id="animatedButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded transition-all duration-300 transform hover:scale-105">Click me</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script>
+            const button = document.getElementById('animatedButton');
+            button.addEventListener('click', () => {
+                anime({
+                    targets: button,
+                    scale: [
+                        {
+                            value: 1, duration: 100,
+                            easing: 'easeInOutQuad'
+                        },
+                        {
+                            value: 1.2, duration: 400,
+                            easing: 'easeInOutQuad'
+                        },
+                        {
+                            value: 1, duration: 100,
+                            easing: 'easeInOutQuad'
+                        }
+                    ],
+                    rotate: {
+                        value: '1turn',
+                        easing: 'easeInOutSine'
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
